@@ -18,7 +18,7 @@ function VerSalas() {
         try {
             const response = await api.get<SalaInterface>('/sala', {
                 params: {
-                    usuario_nome: term,
+                    codigo_sala: term,
                     pagina: page,
                     quantidada: itemsPerPage
                 }
@@ -31,7 +31,7 @@ function VerSalas() {
         }
     };
 
-    const fetchAllUsuarios = async (page: number) => {
+    const fetchAllSalas = async (page: number) => {
         try {
             const response = await api.get<SalaInterface>('/sala', {
                 params: {
@@ -53,14 +53,14 @@ function VerSalas() {
         if (searchTerm) {
             debouncedFetchUsuarios(searchTerm);
         } else {
-            fetchAllUsuarios(currentPage);
+            fetchAllSalas(currentPage);
         }
     }, [searchTerm, currentPage]);
 
     useEffect(() => {
         async function initialFetch() {
             try {
-                await fetchAllUsuarios(currentPage);
+                await fetchAllSalas(currentPage);
                 setTimeout(() => {
                     setLoading(false);
                 }, 500);

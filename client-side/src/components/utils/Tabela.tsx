@@ -11,6 +11,8 @@ interface TableProps {
 }
 
 function Tabela({ dados }: TableProps) {
+    console.log(dados);
+    
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDelete, setIsDelete] = useState(false);
     const [itemId, setItemId] = useState<number | null>(null);
@@ -41,7 +43,7 @@ function Tabela({ dados }: TableProps) {
                 const response = await api.delete(`/${endpoint}/${itemId}`);
                 if (response.status === 200) {
                     const novosItems = 'usuarios' in dados
-                        ? items.filter((item) => item.usuario_id !== itemId)
+                        ? items.filter((item) => item.codigo_sala !== itemId)
                         : items.filter((item) => item.sala_id !== itemId);
     
                     setItems(novosItems);

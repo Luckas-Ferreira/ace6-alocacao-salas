@@ -138,10 +138,10 @@ function Form() {
                     <div className='grid grid-cols-12 gap-5'>
                         <div className="col-span-12 xl:col-span-6">
                             <Checkbox 
-                                label="Presencial" 
-                                value="presencial"
+                                label="Sala" 
+                                value="sala"
                                 onChange={handleCheckboxChange}
-                                checked={tipoSalaValues.includes("presencial")}
+                                checked={tipoSalaValues.includes("sala")}
                             />
                         </div>
 
